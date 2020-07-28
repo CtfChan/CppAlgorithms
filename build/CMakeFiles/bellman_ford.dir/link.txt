@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/bellman_ford.dir/graph/BellmanFord.cpp.o  -o ../bin/bellman_ford 
