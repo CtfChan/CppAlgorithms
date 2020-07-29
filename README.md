@@ -1,4 +1,5 @@
 # Cpp Algorithms
+Algorithms in C++. 
 
 # Dep
 ```
@@ -14,3 +15,14 @@ $ cd build
 $ cmake ../
 $ make -j4
 ```
+
+# To Do
+[ ] bellman ford
+[ ] floyd warshall
+[ ] topological sort
+[ ] dijkstra
+[ ] bloom filter
+[ ] fenwick
+[ ] fibonacci heap 
+[ ] quadtree
+[ ] union find 

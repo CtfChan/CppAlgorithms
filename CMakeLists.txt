@@ -10,3 +10,9 @@ set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 add_executable(bellman_ford 
     graph/BellmanFord.cpp
 )
+
+
+
+add_executable(floyd_warshall 
+    graph/FloydWarshall.cpp
+)
