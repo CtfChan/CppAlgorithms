@@ -18,3 +18,7 @@ add_executable(floyd_warshall
 add_executable(topological_sort 
     graph/TopologicalSort.cpp
 )
+
+add_executable(tarjan_strongly_connected_component
+    graph/TarjanStronglyConnectedComponent.cpp
+)

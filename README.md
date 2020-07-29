@@ -18,8 +18,9 @@ $ make -j4
 
 # To Do
 - [v] bellman ford
-- [ ] floyd warshall
-- [ ] topological sort
+- [v] floyd warshall
+- [v] topological sort
+- [ ] tarjan's strong connected components 
 - [ ] dijkstra
 - [ ] bloom filter
 - [ ] fenwick
