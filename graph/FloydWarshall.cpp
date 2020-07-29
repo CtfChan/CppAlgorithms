@@ -2,6 +2,7 @@
 #include <vector>
 #include <limits> 
 #include <math.h>
+#include <optional>
 
 template<typename T> 
 using Matrix = std::vector<std::vector<T>>;
@@ -18,11 +19,6 @@ private:
 
 
 public:
-    const Matrix<double> getCostMatrix() {
-        solve();
-        return dp_;
-    }
-
     FloydWarshallSolver(const Matrix<double>& matrix) {
         n_ = matrix.size();
         dp_ = Matrix<double>(n_, std::vector<double>(n_));
@@ -71,7 +67,35 @@ public:
 
     }
 
+    const Matrix<double> getCostMatrix() {
+        solve();
+        return dp_;
+    }
 
+    std::optional<std::vector<int>> reconstructPath(int src, int dst) {
+        solve();
+        std::vector<int> path;
+
+        // path does not exist
+        if ( isinf(dp_[src][dst]) ) 
+            return path;
+
+        // try to reconstruct
+        int at = src;
+        for ( ; at != dst; at = next_[at][dst] ) {
+            // path compromised by -ve cycle get out
+            if (at == REACHES_NEGATIVE_CYCLE) 
+                return std::nullopt;
+            path.push_back(at);
+        }
+        
+        // check final node to make sure there's no -ve cycle
+        if (next_[at][dst] == REACHES_NEGATIVE_CYCLE) 
+            return std::nullopt;;
+        path.push_back(dst);
+
+        return path;
+    }
 
 };
 
@@ -105,6 +129,28 @@ int main() {
       for (int dst = 0; dst < n; dst++)
         std::cout << "This shortest path from " << src << " " << dst << " is " << dist[src][dst] << std::endl;
 
+
+    std::cout << std::endl;
+
+
+    std::cout << "Path Reconstruction" << std::endl;
+    for (int src = 0; src < n; src++) {
+        for (int dst = 0; dst < n; dst++) {
+            auto path = solver.reconstructPath(src, dst);
+            std::string str;
+            if (path == std::nullopt) {
+                str = "HAS AN ∞ NUMBER OF SOLUTIONS! (negative cycle case)";
+            } else if ( (*path).empty() ) {
+                str = "DOES NOT EXIST";
+            } else {
+                int num_nodes = (*path).size();
+                const auto& p = *path;
+                for (int i = 0; i < num_nodes; ++i)
+                    str += (i == num_nodes-1) ? std::to_string(p[i]) : std::to_string(p[i]) + "->";
+            }
+            std::cout << "This shortest path from " << src << " " << dst << " is " << str << std::endl;
+        }
+    }
 
     return 0;
 }
