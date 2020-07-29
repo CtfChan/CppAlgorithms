@@ -17,14 +17,17 @@ $ make -j4
 ```
 
 # To Do
-- [v] bellman ford
-- [v] floyd warshall
-- [v] topological sort
-- [ ] tarjan's strong connected components 
+- [x] bellman ford
+- [x] floyd warshall
+- [x] topological sort
+- [x] tarjan's strong connected components 
 - [ ] dijkstra
+- [ ] indexed priority queue
 - [ ] bloom filter
 - [ ] fenwick
 - [ ] fibonacci heap 
 - [ ] quadtree
 - [ ] union find 
 - [ ] red black tree
+
+
