@@ -39,6 +39,26 @@ std::vector<int> topologicalSort(Graph& graph, int num_nodes) {
 }
 
 
+std::vector<int> dagShortestPath(Graph& graph, int start, int num_nodes) {
+    auto topsort = topologicalSort(graph, num_nodes);
+    std::vector<int> dist(num_nodes, -1);
+    dist[start] = 0;
+
+    for (int i = 0; i < num_nodes; ++i) {
+        int node_idx = topsort[i];
+        // only update neighbouring distances if traversable
+        if (dist[node_idx] != -1) {
+            for (Edge& edge : graph[node_idx]) {
+                int new_dist = dist[node_idx] + edge.weight;
+                dist[edge.to] = (dist[edge.to] == -1) ? new_dist :
+                                std::min(dist[edge.to], new_dist);
+            }
+        }
+    }
+
+    return dist;
+}
+
 int main() {
     int N = 7;
     Graph graph;
@@ -59,7 +79,13 @@ int main() {
         std::cout << num << " ";
     std::cout << std::endl;
 
+    std::vector<int> dists = dagShortestPath(graph, 0, N);
 
+    // 0->4 distance should print 8
+    std::cout << dists[4] << std::endl;
+
+    // 0->6 distance should print -1, unreachable
+    std::cout << dists[6] << std::endl;
 
     return 0;
 }
