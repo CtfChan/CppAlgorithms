@@ -82,4 +82,5 @@ int main() {
     // The cost to get from node 0 to 7 is 8.00
     // The cost to get from node 0 to 8 is Infinity
 
+    return 0;
 }

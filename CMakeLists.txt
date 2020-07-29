@@ -11,8 +11,10 @@ add_executable(bellman_ford
     graph/BellmanFord.cpp
 )
 
-
-
 add_executable(floyd_warshall 
     graph/FloydWarshall.cpp
+)
+
+add_executable(topological_sort 
+    graph/TopologicalSort.cpp
 )
