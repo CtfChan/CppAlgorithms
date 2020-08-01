@@ -33,3 +33,8 @@ add_executable(lazy_prim
 add_executable(rooting_tree
     graph/RootingTree.cpp
 )
+
+
+add_executable(tree_center
+    graph/TreeCenter.cpp
+)

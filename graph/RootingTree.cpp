@@ -2,7 +2,6 @@
 #include <vector>
 #include <memory>
 
-
 using Graph = std::vector<std::vector<int>>;
 
 
