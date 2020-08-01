@@ -25,3 +25,11 @@ add_executable(tarjan_strongly_connected_component
 add_executable(dijkstra
     graph/Dijkstra.cpp
 )
+
+add_executable(lazy_prim
+    graph/LazyPrim.cpp
+)
+
+add_executable(rooting_tree
+    graph/RootingTree.cpp
+)
