@@ -34,7 +34,10 @@ add_executable(rooting_tree
     graph/RootingTree.cpp
 )
 
-
 add_executable(tree_center
     graph/TreeCenter.cpp
+)
+
+add_executable(tree_isomorphism
+    graph/TreeIsomorphism.cpp
 )
