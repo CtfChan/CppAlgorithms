@@ -45,3 +45,7 @@ add_executable(tree_isomorphism
 add_executable(eulerian_path
     graph/EulerianPath.cpp
 )
+
+add_executable(lowest_common_ancestor
+    graph/LowestCommonAncestor.cpp
+)
