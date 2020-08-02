@@ -41,3 +41,7 @@ add_executable(tree_center
 add_executable(tree_isomorphism
     graph/TreeIsomorphism.cpp
 )
+
+add_executable(eulerian_path
+    graph/EulerianPath.cpp
+)

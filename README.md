@@ -1,5 +1,5 @@
 # Cpp Algorithms
-Algorithms in C++. 
+Algorithms in C++17. Each implementation is meant to be independent of one another. 
 
 # Dep
 ```
