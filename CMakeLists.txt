@@ -57,3 +57,7 @@ add_executable(ford_fulkerson
 add_executable(edmonds_karp
     graph/EdmondsKarp.cpp
 )
+
+add_executable(capacity_scaling
+    graph/CapacityScaling.cpp
+)
