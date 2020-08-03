@@ -61,3 +61,7 @@ add_executable(edmonds_karp
 add_executable(capacity_scaling
     graph/CapacityScaling.cpp
 )
+
+add_executable(dinic
+    graph/Dinic.cpp
+)
