@@ -49,3 +49,11 @@ add_executable(eulerian_path
 add_executable(lowest_common_ancestor
     graph/LowestCommonAncestor.cpp
 )
+
+add_executable(ford_fulkerson
+    graph/FordFulkerson.cpp
+)
+
+add_executable(edmonds_karp
+    graph/EdmondsKarp.cpp
+)
