@@ -6,6 +6,13 @@ set(CMAKE_CXX_STANDARD 17)
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 
 
+# data structures
+add_executable(union_find
+    data_structures/UnionFind.cpp
+)
+
+
+
 # graph
 
 add_executable(bellman_ford 
@@ -30,6 +37,10 @@ add_executable(dijkstra
 
 add_executable(lazy_prim
     graph/LazyPrim.cpp
+)
+
+add_executable(kruskals_edge
+    graph/KruskalsEdge.cpp
 )
 
 add_executable(rooting_tree
