@@ -12,7 +12,7 @@ public:
     UnionFind(int n) {
         parent_.resize(n);
         std::iota(parent_.begin(), parent_.end(), 0);
-        size_ = parent_;
+        size_ = std::vector<int>(n, 1);
     }
 
     int find(int src) {
@@ -76,7 +76,6 @@ int main() {
 
     // false
     std::cout << uf.connected(1, 3) << std::endl;
-
    
     return 0;
 }

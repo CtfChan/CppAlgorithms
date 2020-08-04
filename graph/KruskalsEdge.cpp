@@ -16,7 +16,7 @@ public:
     UnionFind(int n) {
         parent_.resize(n);
         std::iota(parent_.begin(), parent_.end(), 0);
-        size_ = parent_;
+        size_ = std::vector<int>(n, 1);
     }
 
     int find(int src) {
@@ -58,7 +58,7 @@ public:
     }
 
     int size(int src) {
-        return size_[src];
+        return size_[find(src)];
     }
 
 };
@@ -72,13 +72,13 @@ private:
 
     std::vector<Edge> mst_;
     bool mst_exists_ = false;
-    long mst_cost_;
+    long mst_cost_ = 0;
 
     void kruskals() {
         if (solved_)
             return;
         
-        // heapify on vector in linear time, we want a min_heap
+        // heapify on vector in linear time with make_heap, we want a min_heap
         auto cmp = [](const Edge& e1, const Edge& e2){ return e1.cost > e2.cost; };
         std::make_heap(edges_.begin(), edges_.end(), cmp);
 
@@ -86,21 +86,25 @@ private:
 
         mst_.reserve(num_nodes_ - 1);
 
-        while (edges_.empty() == true) {
+
+        while (edges_.empty() == false) {
             std::pop_heap(edges_.begin(), edges_.end(), cmp); // moves element to the front
             auto edge = edges_.back();
             edges_.pop_back();
 
-            if (uf.connected(edge.from, edge.to))
+
+            // skip if union(from, to) creates a cycle
+            if (uf.connected(edge.from, edge.to) == true) {
                 continue;
+            }
 
             uf.createUnion(edge.from, edge.to);
-
+            
             mst_cost_ += edge.cost;
             mst_.push_back(edge);
 
             // get out when we've connected all nodes
-            if (uf.size(0) == num_nodes_)
+            if (uf.size(num_nodes_-1) == num_nodes_)
                 break;
         }
 
@@ -141,7 +145,7 @@ int main() {
     edges.push_back({6, 8, 4});
     edges.push_back({4, 3, 2});
     edges.push_back({5, 3, 5});
-    edges.push_back({3, 6,11});
+    edges.push_back({3, 6, 11});
     edges.push_back({6, 7, 1});
     edges.push_back({3, 7, 2});
     edges.push_back({7, 8, 6});
