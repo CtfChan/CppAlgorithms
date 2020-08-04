@@ -1,7 +1,13 @@
 # Notes
 
 ## Dynamic Programming
-
+Knapsack Problem
+- num_items+1 x capacity+1 dp array
+```
+for item = 0 : num_items:
+    for capacity = 0 : total_capacity
+        dp[item][capacity] = max(don't put item in sack, put item in sack)
+```
 
 
 ## Graphs
