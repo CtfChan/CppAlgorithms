@@ -11,6 +11,10 @@ add_executable(union_find
     data_structures/UnionFind.cpp
 )
 
+add_executable(indexed_d_heap
+    data_structures/MinIndexedDHeap.cpp
+)
+
 
 
 # graph
