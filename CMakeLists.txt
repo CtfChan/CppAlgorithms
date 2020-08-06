@@ -11,13 +11,22 @@ add_executable(union_find
     data_structures/UnionFind.cpp
 )
 
-add_executable(indexed_d_heap
+add_executable(min_indexed_d_heap
     data_structures/MinIndexedDHeap.cpp
 )
 
 
 
 # graph
+add_executable(breadth_first_search
+    graph/BreadthFirstSearch.cpp
+)
+
+add_executable(depth_first_search
+    graph/DepthFirstSearch.cpp
+)
+
+
 
 add_executable(bellman_ford 
     graph/BellmanFord.cpp
