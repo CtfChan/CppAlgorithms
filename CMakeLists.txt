@@ -15,6 +15,10 @@ add_executable(min_indexed_d_heap
     data_structures/MinIndexedDHeap.cpp
 )
 
+add_executable(sparse_tables
+    data_structures/SparseTables.cpp
+)
+
 
 
 # graph
