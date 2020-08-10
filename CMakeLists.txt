@@ -19,6 +19,10 @@ add_executable(sparse_tables
     data_structures/SparseTables.cpp
 )
 
+add_executable(fenwick_tree
+    data_structures/FenwickTree.cpp
+)
+
 
 
 # graph
