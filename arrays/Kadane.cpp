@@ -18,6 +18,6 @@ int maxSubArray(vector<int> &nums)
 int main()
 {
     vector<int> vec = {-2,1,-3,4,-1,2,1,-5,4};
-    std::cout << maxSubArray(vec) << std::endl; // 6
+    std::cout << maxSubArray(vec) << std::endl; // 6 is ans
     return 0;
 }

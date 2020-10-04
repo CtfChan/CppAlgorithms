@@ -6,6 +6,14 @@ set(CMAKE_CXX_STANDARD 17)
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 
 
+# arrays
+add_executable(kadane
+    data_structures/Kadane.cpp
+)
+
+
+
+
 # data structures
 add_executable(union_find
     data_structures/UnionFind.cpp
@@ -36,15 +44,15 @@ add_executable(depth_first_search
 
 
 
-add_executable(bellman_ford 
+add_executable(bellman_ford
     graph/BellmanFord.cpp
 )
 
-add_executable(floyd_warshall 
+add_executable(floyd_warshall
     graph/FloydWarshall.cpp
 )
 
-add_executable(topological_sort 
+add_executable(topological_sort
     graph/TopologicalSort.cpp
 )
 
